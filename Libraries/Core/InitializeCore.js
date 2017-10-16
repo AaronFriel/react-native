@@ -124,7 +124,11 @@ if (PlatformConstants) {
 
   const ReactNativeVersion = require('ReactNativeVersion');
   const nativeVersion = PlatformConstants.reactNativeVersion;
-  if (ReactNativeVersion.version.major !== nativeVersion.major ||
+  if (nativeVersion === undefined) {
+    console.warn(
+      `React Native version not specified. The platform constant may not be defined.`
+    )
+  } else if (ReactNativeVersion.version.major !== nativeVersion.major ||
       ReactNativeVersion.version.minor !== nativeVersion.minor) {
     console.warn(
       `React Native version mismatch.\n\nJavaScript version: ${formatVersion(ReactNativeVersion.version)}\n` +
@@ -135,6 +139,7 @@ if (PlatformConstants) {
     );
   }
 }
+
 
 // Set up collections
 const _shouldPolyfillCollection = require('_shouldPolyfillES6Collection');
