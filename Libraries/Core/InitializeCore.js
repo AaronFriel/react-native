@@ -126,7 +126,7 @@ if (PlatformConstants) {
   const nativeVersion = PlatformConstants.reactNativeVersion;
   if (ReactNativeVersion.version.major !== nativeVersion.major ||
       ReactNativeVersion.version.minor !== nativeVersion.minor) {
-    throw new Error(
+    console.warn(
       `React Native version mismatch.\n\nJavaScript version: ${formatVersion(ReactNativeVersion.version)}\n` +
       `Native version: ${formatVersion(nativeVersion)}\n\n` +
       'Make sure that you have rebuilt the native code. If the problem persists ' +
